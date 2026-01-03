@@ -1,0 +1,36 @@
+{
+    "admins": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "admin123"
+        }
+    ],
+    "armada": [
+        {
+            "id": 1,
+            "name": "Hiace Premio",
+            "capacity": 14,
+            "price": 1500000,
+            "image": "https://via.placeholder.com/400x250",
+            "facility": "AC, Reclining Seat, Audio"
+        },
+        {
+            "id": 2,
+            "name": "Elf Long",
+            "capacity": 19,
+            "price": 1800000,
+            "image": "https://via.placeholder.com/400x250",
+            "facility": "AC, Audio, Bagasi Luas"
+        },
+        {
+            "id": 3,
+            "name": "Bus Pariwisata",
+            "capacity": 45,
+            "price": 5000000,
+            "image": "https://via.placeholder.com/400x250",
+            "facility": "AC, Reclining Seat, TV, Toilet"
+        }
+    ],
+    "booking": []
+}
