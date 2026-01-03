@@ -1,35 +1,18 @@
 {
-  "admin": {
-    "id": 1,
-    "username": "admin",
-    "password": "admin123",
-    "name": "Admin ADIM"
-  },
-
-  "services": [
+  "admins": [
     {
       "id": 1,
-      "title": "Paket Wisata Jogja 1 Hari",
-      "price": 350000,
-      "description": "City tour Malioboro, Keraton, Pantai Parangtritis",
-      "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
-    },
-    {
-      "id": 2,
-      "title": "Paket Wisata Jogja 3 Hari",
-      "price": 1250000,
-      "description": "Candi Borobudur, Merapi Lava Tour, Malioboro, Pantai",
-      "image": "https://images.unsplash.com/photo-1549692520-acc6669e2f0c"
+      "username": "admin",
+      "password": "admin123"
     }
   ],
-
-  "fleet": [
+  "armada": [
     {
       "id": 1,
       "name": "Hiace Premio",
       "capacity": 14,
       "price": 1500000,
-      "image": "https://images.unsplash.com/photo-1542362567-b07e54358753",
+      "image": "https://via.placeholder.com/400x250",
       "facility": "AC, Reclining Seat, Audio"
     },
     {
@@ -37,7 +20,7 @@
       "name": "Elf Long",
       "capacity": 19,
       "price": 1800000,
-      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+      "image": "https://via.placeholder.com/400x250",
       "facility": "AC, Audio, Bagasi Luas"
     },
     {
@@ -45,12 +28,9 @@
       "name": "Bus Pariwisata",
       "capacity": 45,
       "price": 5000000,
-      "image": "https://images.unsplash.com/photo-1520101241951-6c5c6a3c9b28",
+      "image": "https://via.placeholder.com/400x250",
       "facility": "AC, Reclining Seat, TV, Toilet"
     }
   ],
-
-  "bookings": [],
-
-  "messages": []
+  "booking": []
 }
