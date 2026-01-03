@@ -1,13 +1,11 @@
-import jsonServer from "json-server";
+const jsonServer = require("json-server");
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-// Railway memberi port via ENV
 const PORT = process.env.PORT || 3000;
 
-// middleware
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
@@ -27,10 +25,8 @@ server.post("/login", (req, res) => {
   }
 });
 
-// gunakan semua endpoint json-server
 server.use(router);
 
-// RUN SERVER
 server.listen(PORT, () => {
-  console.log("🚀 ADIM backend running on port", PORT);
+  console.log("🚀 ADIM Backend running on port", PORT);
 });
