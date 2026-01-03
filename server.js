@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 3000;
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
-// =======================
-// LOGIN ADMIN
-// =======================
+// =========================
+// 🔐 LOGIN ADMIN
+// =========================
 server.post("/login", (req, res) => {
   const { username, password } = req.body;
   const admins = router.db.get("admins").value();
@@ -21,13 +21,21 @@ server.post("/login", (req, res) => {
   );
 
   if (admin) {
-    res.json({ success: true, admin });
+    res.json({
+      success: true,
+      admin
+    });
   } else {
-    res.status(401).json({ success: false, message: "Login gagal" });
+    res.status(401).json({
+      success: false,
+      message: "Login gagal"
+    });
   }
 });
 
-// API default json-server
+// =========================
+// API DEFAULT JSON SERVER
+// =========================
 server.use(router);
 
 server.listen(PORT, () => {
