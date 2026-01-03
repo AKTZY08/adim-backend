@@ -9,7 +9,9 @@ const PORT = process.env.PORT || 3000;
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
-// LOGIN
+// =======================
+// LOGIN ADMIN
+// =======================
 server.post("/login", (req, res) => {
   const { username, password } = req.body;
   const admins = router.db.get("admins").value();
@@ -25,8 +27,9 @@ server.post("/login", (req, res) => {
   }
 });
 
+// API default json-server
 server.use(router);
 
 server.listen(PORT, () => {
-  console.log("🚀 ADIM Backend running on port", PORT);
+  console.log("🚀 ADIM Backend running on port " + PORT);
 });
