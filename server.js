@@ -1,13 +1,10 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
 const jsonServer = require("json-server");
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
@@ -15,9 +12,13 @@ server.use(jsonServer.bodyParser);
 // LOGIN
 server.post("/login", (req, res) => {
   const { username, password } = req.body;
-  const admin = router.db.get("admins").find({ username }).value();
 
-  if (admin && admin.password === password) {
+  const admin = router.db
+    .get("admins")
+    .find({ username, password })
+    .value();
+
+  if (admin) {
     res.json({
       success: true,
       id: admin.id,
@@ -30,6 +31,6 @@ server.post("/login", (req, res) => {
 
 server.use(router);
 
-server.listen(port, () => {
-  console.log("JSON Server running on port", port);
+server.listen(PORT, () => {
+  console.log("JSON Server running on port", PORT);
 });
