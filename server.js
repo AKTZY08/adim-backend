@@ -3,6 +3,9 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
+// =========================
+// 🌐 Middleware
+// =========================
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
@@ -15,6 +18,7 @@ const ADMIN_TOKEN = "ADIM_ADMIN_TOKEN_2025";
 // 🔐 AUTH MIDDLEWARE
 // =========================
 server.use((req, res, next) => {
+  // PUBLIC ENDPOINTS
   if (
     req.url.startsWith("/login") ||
     req.url.startsWith("/messages") ||
@@ -24,6 +28,7 @@ server.use((req, res, next) => {
   }
 
   const auth = req.headers.authorization;
+
   if (!auth || auth !== `Bearer ${ADMIN_TOKEN}`) {
     return res.status(401).json({ message: "Unauthorized" });
   }
@@ -65,7 +70,7 @@ server.post("/change-password", (req, res) => {
 });
 
 // =========================
-// 📦 BOOKING
+// 📦 BOOKING (PUBLIC)
 // =========================
 server.post("/bookings", (req, res) => {
   const data = {
@@ -80,7 +85,7 @@ server.post("/bookings", (req, res) => {
 });
 
 // =========================
-// 📩 KONTAK / PESAN
+// 📩 KONTAK / PESAN (PUBLIC)
 // =========================
 server.post("/messages", (req, res) => {
   const data = {
@@ -94,7 +99,7 @@ server.post("/messages", (req, res) => {
 });
 
 // =========================
-// 📦 SERVICES (Paket Wisata)
+// 📦 SERVICES (ADMIN)
 // =========================
 server.post("/services", (req, res) => {
   const data = {
@@ -106,7 +111,7 @@ server.post("/services", (req, res) => {
 });
 
 // =========================
-// 🚍 ARMADA
+// 🚍 ARMADA (ADMIN)
 // =========================
 server.post("/fleet", (req, res) => {
   const data = {
@@ -123,8 +128,10 @@ server.post("/fleet", (req, res) => {
 server.use(router);
 
 // =========================
-// 🚀 RUN SERVER
+// 🚀 RUN SERVER (Railway Ready)
 // =========================
-server.listen(3000, () => {
-  console.log("🔥 ADIM JSON BACKEND running at http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log("🔥 ADIM JSON BACKEND running on port " + PORT);
 });
